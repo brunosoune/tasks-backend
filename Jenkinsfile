@@ -52,5 +52,13 @@ pipeline {
                 
             }
         }
+        stage ('Functional test') {
+            steps {
+                dir('functional-test') {
+                    git 'https://github.com/brunosoune/tasks-functional-tests'
+                    bat 'mvn test'
+                }
+            }
+        }
     }
 }
